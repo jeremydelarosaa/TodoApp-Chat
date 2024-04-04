@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300&family=Roboto:ital,wght@0,400;0,700;1,300&display=swap');
+
+:root {
+    font-size: 62.5%;
+    --color-design: #e34abd;    
+    --color-white: #fff;
+    --color-design-grey: rgba(255, 255, 255, 0.2);
+    --color-design-lightgrey: rgb(127, 127, 127);
+    --color-text-base: rgba(47, 47, 47, 0.9);
+    --color-text-invert: rgb(213, 213, 213);
+    --gap-xs: 1rem;
+    --gap-s: 2rem;
+    --gap-m: 4rem;
+    --gap-l: 6rem;
+    --gap-xl: 9rem;
+    --gap-default: var(--gap-m);
+    --body-component-height: 10rem;
+}
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+input ,textarea{
+    border: none;
+    outline: none;
+    background: transparent;
+}
+body, html {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    background-color: rgb(23, 23, 26);
+    color: var(--color-text-invert);
+}
+.hide {
+    display: none;
+}
+
+
+#page-content{
+    width: 300vw;
+    display: flex;
+}
+
+#page-content > *{
+    width: 100vw;
+}
+
+#page-content > :first-child{
+    margin-left: -100vw;
+    transition: all .5s;
+}
+
+#app-services{
+    position: fixed;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    bottom: 0;
+    left: var(--gap-default);
+    right: var(--gap-default);
+    border-top: 1px solid var(--color-design-grey);
+    height: 80px;
+}
+
+#app-services svg{
+    width: 3rem;
+}
+
+#app-services > div{
+    display: grid;
+    place-content: center;
+}
+
+/* Stile chat */
+
+#chat-wrapper{
+    
+    max-width: 600px;
+    margin-inline: auto;
+    height: calc(100vh - 80px);
+}
+
+#chat-body{
+    height: calc(100vh - 175px);
+    overflow-y: auto;
+    
+}
+
+.send-btn{
+    width: 2.2rem;
+}
+
+.message{
+    margin-block:3rem ;
+    display: grid;
+    column-gap: 2rem;
+    align-items: center;
+}
+
+.message.user{
+    grid-template-columns: 1fr 80px;
+}
+
+.message.user > p {
+    order: -1;
+    background-color: var(--color-design);
+    padding: 2.4rem 1.6rem;
+    border-top-left-radius: 4rem;
+    border-top-right-radius: 4rem;
+    border-bottom-left-radius: 4rem;
+}
+
+.message.admin {
+    grid-template-columns: 80px 1fr;
+}
+
+.message.admin > p {
+background-color: var(--color-white);
+padding: 2.4rem 1.6rem;
+border-top-left-radius: 4rem;
+border-top-right-radius: 4rem;
+border-bottom-right-radius: 4rem;
+color: var(--color-text-base);
+}
+
+.new-item-wrapper{
+    display: flex;
+    background-color:  var(--color-white);
+    border-radius: 3rem;
+    height: 4.6rem;
+}
+
+.new-item-wrapper > textarea{
+    
+    resize: none; 
+    width: calc(100% - 4.6rem);
+    padding-top: 1.2rem;
+    padding-inline: 2rem;
+    line-height: 1.5em;
+    font-size: 1.6rem;
+    overflow: hidden;
+}
+
+.new-item-wrapper > span{
+    width: 4.6rem;
+    height: 4.6rem;
+    border-radius: 50%;
+    background-color: var(--color-design);
+    display: grid;
+    place-content: center;
+}
+
+/* Stile task */
+
+#task-wrapper{
+    margin-inline:  var(--gap-default);
+    height: calc(100vh - 80px);
+}
+
+#task-head {
+    margin-block-start: var(--gap-s);
+    margin-block-end: var(--gap-m);
+}
+
+#task-search{
+    background-color: var(--color-design-lightgrey);
+    display: block;
+    font-size: 1.8rem;
+    padding: .6em 1em;
+    border-radius: 4em;
+    width: 50vw;
+    margin-inline: auto;
+    
+}
+
+#task-search::placeholder{
+    color: var(--color-text-invert);
+}
+
+#task-body{
+    height: calc(100vh - 260px);
+    
+}
+
+.task-item{
+    display: grid;
+    grid-template-columns: 1fr 30px 30px;
+    column-gap: var(--gap-s);
+    border:  1px solid var(--color-design-lightgrey);
+    padding: var(--gap-s);
+    margin-bottom: var(--gap-s);
+    border-radius: 2rem;
+}
+
+.task-item.completed > p {
+    text-decoration: line-through;
+}
+
+.task-item :is(img , svg){
+    cursor: pointer;
+}
+.task-item.hide {
+    display: none;
+}
